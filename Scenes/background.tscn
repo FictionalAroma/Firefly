@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ducpi58w5534p"]
+
+[node name="background" type="CanvasLayer"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+offset_right = 1156.0
+offset_bottom = 654.0
+color = Color(0.113725, 0.113725, 0.14902, 1)

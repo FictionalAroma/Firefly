@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjywh3rvcxhif"]
+
+[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Scenes/firefly.tscn" id="1_dsgnu"]
+[ext_resource type="PackedScene" uid="uid://bu4c06b0iklpq" path="res://Scenes/mushroom.tscn" id="2_fx8ii"]
+[ext_resource type="Texture2D" uid="uid://clextp33fv2ks" path="res://icon.svg" id="3_6xo7b"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ds7or"]
+vertices = PackedVector2Array(719, 599, 719, 455, 3206, 31, 3206, 1769, 28, 1773, 699, 623, 555, 623, 531, 603, 28, 31, 531, 455, 555, 435, 695, 435)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 5, 4), PackedInt32Array(7, 6, 4), PackedInt32Array(7, 4, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(10, 8, 2, 11), PackedInt32Array(11, 2, 1)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2, 1, 3236, 2, 3236, 1799, -2, 1804)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 30.0
+
+[node name="level" type="Node2D"]
+
+[node name="firefly" parent="." instance=ExtResource("1_dsgnu")]
+position = Vector2(340, 296)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 3239.0
+offset_bottom = 1807.0
+color = Color(0.0941176, 0.0745098, 0.113725, 1)
+
+[node name="mushroom4" parent="." instance=ExtResource("2_fx8ii")]
+position = Vector2(1153, 503)
+
+[node name="mushroom2" parent="." instance=ExtResource("2_fx8ii")]
+position = Vector2(318, 507)
+
+[node name="mushroom" parent="." instance=ExtResource("2_fx8ii")]
+position = Vector2(706, 263)
+
+[node name="mushroom3" parent="." instance=ExtResource("2_fx8ii")]
+position = Vector2(795, 746)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ds7or")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(625, 529)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(64, -59.6, 64, 59, 59.6, 64, -59, 64, -64, 59.6, -64, -59.6, -59, -63.9, 59, -64)
+
+[node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
+texture = ExtResource("3_6xo7b")

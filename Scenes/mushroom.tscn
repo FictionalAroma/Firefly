@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bu4c06b0iklpq"]
+
+[ext_resource type="Script" path="res://Scripts/mushroom.gd" id="1_08p40"]
+[ext_resource type="Texture2D" uid="uid://whrha8fqbpe3" path="res://Assets/mushroom sheet.png" id="1_ldtj4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ycua"]
+radius = 98.0816
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gysum"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isjig"]
+atlas = ExtResource("1_ldtj4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fteyq"]
+atlas = ExtResource("1_ldtj4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuifm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isjig")
+}],
+"loop": true,
+"name": &"dim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fteyq")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_4i58v"]
+offsets = PackedFloat32Array(0, 0.772727)
+colors = PackedColorArray(1, 1, 1, 1, 0.454902, 0.454902, 0.454902, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r1ot4"]
+gradient = SubResource("Gradient_4i58v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="mushroom" type="Area2D"]
+script = ExtResource("1_08p40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 10)
+shape = SubResource("CircleShape2D_6ycua")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_gysum")
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_tuifm")
+animation = &"dim"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(3, 8)
+scale = Vector2(4.0625, 4.03125)
+color = Color(0.431373, 1, 0.917647, 1)
+energy = 3.3
+blend_mode = 2
+range_z_min = -1025
+range_z_max = 0
+texture = SubResource("GradientTexture2D_r1ot4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
