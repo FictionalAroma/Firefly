@@ -522,6 +522,6 @@ animations = [{
 [node name="animatedSprite2d" type="AnimatedSprite2D" parent="characterBody2d"]
 sprite_frames = SubResource("SpriteFrames_y05wu")
 animation = &"cast_east"
-frame_progress = 0.123467
+frame_progress = 0.972988
 
 [node name="collisionShape2d" type="CollisionShape2D" parent="characterBody2d"]
