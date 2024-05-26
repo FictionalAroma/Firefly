@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjywh3rvcxhif"]
 
-[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Scenes/firefly.tscn" id="1_dsgnu"]
-[ext_resource type="PackedScene" uid="uid://bu4c06b0iklpq" path="res://Scenes/mushroom.tscn" id="2_fx8ii"]
-[ext_resource type="Texture2D" uid="uid://clextp33fv2ks" path="res://icon.svg" id="3_6xo7b"]
+[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/firefly.tscn" id="1_dsgnu"]
+[ext_resource type="PackedScene" uid="uid://bu4c06b0iklpq" path="res://Prefabs/mushroom.tscn" id="2_fx8ii"]
+[ext_resource type="Texture2D" uid="uid://c3mvpbaldvvta" path="res://icon.svg" id="3_6xo7b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ds7or"]
 vertices = PackedVector2Array(719, 599, 719, 455, 3206, 31, 3206, 1769, 28, 1773, 699, 623, 555, 623, 531, 603, 28, 31, 531, 455, 555, 435, 695, 435)
