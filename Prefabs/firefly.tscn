@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://vsrauxj0p1gw"]
 
-[ext_resource type="Texture2D" uid="uid://dq86y1hkmcod3" path="res://Assets/firefly fly.png" id="1_geyw1"]
+[ext_resource type="Texture2D" uid="uid://dq86y1hkmcod3" path="res://Assets/Sprites/Characters/firefly fly.png" id="1_geyw1"]
 [ext_resource type="Script" path="res://Scripts/firefly.gd" id="1_grdv7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rveg7"]
