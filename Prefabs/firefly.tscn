@@ -1,42 +1,39 @@
 [gd_scene load_steps=12 format=3 uid="uid://vsrauxj0p1gw"]
 
-[ext_resource type="Texture2D" uid="uid://dq86y1hkmcod3" path="res://Assets/Sprites/Characters/firefly fly.png" id="1_geyw1"]
-[ext_resource type="Script" path="res://Scripts/firefly.gd" id="1_grdv7"]
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0vqda"]
+[ext_resource type="PackedScene" uid="uid://ci5lye1dlxssy" path="res://Prefabs/BasicBullet.tscn" id="2_tr715"]
+[ext_resource type="Texture2D" uid="uid://dq86y1hkmcod3" path="res://Assets/Sprites/Characters/firefly fly.png" id="3_fqj1t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rveg7"]
-atlas = ExtResource("1_geyw1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aae6d"]
+atlas = ExtResource("3_fqj1t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4agn"]
+atlas = ExtResource("3_fqj1t")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rg2bt"]
-atlas = ExtResource("1_geyw1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxunj"]
+atlas = ExtResource("3_fqj1t")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yb7p4"]
-atlas = ExtResource("1_geyw1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvnsq"]
+atlas = ExtResource("3_fqj1t")
 region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_flflt"]
-atlas = ExtResource("1_geyw1")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_av1c5"]
-atlas = ExtResource("1_geyw1")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8klb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rveg7")
+"texture": SubResource("AtlasTexture_aae6d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rg2bt")
+"texture": SubResource("AtlasTexture_r4agn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yb7p4")
+"texture": SubResource("AtlasTexture_rxunj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_flflt")
+"texture": SubResource("AtlasTexture_dvnsq")
 }],
 "loop": true,
 "name": &"fly",
@@ -44,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_av1c5")
+"texture": SubResource("AtlasTexture_aae6d")
 }],
 "loop": true,
 "name": &"idle",
@@ -66,17 +63,17 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [node name="firefly" type="CharacterBody2D"]
-script = ExtResource("1_grdv7")
+script = ExtResource("1_0vqda")
+bullet = ExtResource("2_tr715")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
+position = Vector2(-7, -2)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_k8klb")
 animation = &"idle"
-frame_progress = 0.312357
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3r0x6")
 
