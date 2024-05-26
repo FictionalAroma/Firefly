@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1jug020ylof7"]
+[gd_scene load_steps=4 format=3 uid="uid://c1jug020ylof7"]
 
 [ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/firefly.tscn" id="1_3nitp"]
-[ext_resource type="PackedScene" uid="uid://bu4c06b0iklpq" path="res://Prefabs/mushroom.tscn" id="2_e34j6"]
 [ext_resource type="Texture2D" uid="uid://c3mvpbaldvvta" path="res://icon.svg" id="3_0oycg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ds7or"]
@@ -13,27 +12,13 @@ agent_radius = 30.0
 
 [node name="level" type="Node2D"]
 
-[node name="firefly" parent="." instance=ExtResource("1_3nitp")]
-position = Vector2(340, 296)
-
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -2.0
 offset_top = 1.0
 offset_right = 3239.0
 offset_bottom = 1807.0
 color = Color(0.0941176, 0.0745098, 0.113725, 1)
-
-[node name="mushroom4" parent="." instance=ExtResource("2_e34j6")]
-position = Vector2(1153, 503)
-
-[node name="mushroom2" parent="." instance=ExtResource("2_e34j6")]
-position = Vector2(318, 507)
-
-[node name="mushroom" parent="." instance=ExtResource("2_e34j6")]
-position = Vector2(706, 263)
-
-[node name="mushroom3" parent="." instance=ExtResource("2_e34j6")]
-position = Vector2(795, 746)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ds7or")
@@ -46,3 +31,6 @@ polygon = PackedVector2Array(64, -59.6, 64, 59, 59.6, 64, -59, 64, -64, 59.6, -6
 
 [node name="Icon" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
 texture = ExtResource("3_0oycg")
+
+[node name="firefly" parent="." instance=ExtResource("1_3nitp")]
+position = Vector2(819, 249)
