@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq86y1hkmcod3"
-path="res://.godot/imported/firefly fly.png-e0b35f7cbfa6103be5b9df8e0b75cec7.ctex"
+uid="uid://b0c6k5n8nt6il"
+path="res://.godot/imported/details.png-f42caf7a5a6dbe4558eda1d75ce3f856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/firefly fly.png"
-dest_files=["res://.godot/imported/firefly fly.png-e0b35f7cbfa6103be5b9df8e0b75cec7.ctex"]
+source_file="res://Assets/Sprites/Tile Map/tiles/red gory land/details.png"
+dest_files=["res://.godot/imported/details.png-f42caf7a5a6dbe4558eda1d75ce3f856.ctex"]
 
 [params]
 
