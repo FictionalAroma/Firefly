@@ -3,8 +3,11 @@ class_name AudioSettings extends RefCounted
 
 var _updateSettingsCallback: Callable
 const CONFIG_SECTION_NAME:= "AudioSettings"
+func _init(callback: Callable):
+    _updateSettingsCallback = callback
 
-var _musicVolume: float = 0.0
+
+var _musicVolume: float = 50.0
 var MusicVolume: float:
     get:
         return _musicVolume;
@@ -14,7 +17,7 @@ var MusicVolume: float:
 
 
 
-var _effectsVolume: float = 0.0
+var _effectsVolume: float = 50.0
 var EffectsVolume: float:
     get:
         return _effectsVolume;
@@ -22,7 +25,7 @@ var EffectsVolume: float:
         _effectsVolume = value;
         SendValuesUpdatedEvent()
 
-var _alertVolume: float = 0.0
+var _alertVolume: float = 50.0
 var AlertVolume: float:
     get:
         return _alertVolume;
