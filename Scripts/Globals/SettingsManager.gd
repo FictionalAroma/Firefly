@@ -2,35 +2,30 @@ extends Node
 
 const CONFIG_FILE_PATH: String = "user://config.cfg";
 
-var _config:ConfigFile
+@onready var _config := ConfigFile.new()
 
-var _audioSettings: AudioSettings
-var _graphicsSettings: GraphicsSettings
+@onready var _audioSettings := AudioSettings.new(SendAudioSettingsUpdated)
+@onready var _graphicsSettings := GraphicsSettings.new(SendGraphicsSettingsUpdated)
 
 
 signal AudioSettingsUpdated(audioSettings: AudioSettings)
 signal GraphicsSettingsUpdated(graphicsSettings: AudioSettings)
 
 func _ready():
-    _config.load(CONFIG_FILE_PATH)
-    LoadConfiguration(_config)
-
-    _audioSettings._updateSettingsCallback = func(audioSettings: AudioSettings):
-        AudioSettingsUpdated.emit(audioSettings)
-
-    _graphicsSettings._updateSettingsCallback = SendGraphicsSettingsUpdated
+	_config.load(CONFIG_FILE_PATH)
+	LoadConfiguration(_config)
 
 
 func LoadConfiguration(config: ConfigFile) -> void:
-    _audioSettings.LoadFromConfig(config)
-    _graphicsSettings.LoadFromConfig(config)
+	_audioSettings.LoadFromConfig(config)
+	_graphicsSettings.LoadFromConfig(config)
 
 func SaveConfiguration(config: ConfigFile) -> void:
-    _audioSettings.LoadFromConfig(config)
-    _graphicsSettings.LoadFromConfig(config)
+	_audioSettings.LoadFromConfig(config)
+	_graphicsSettings.LoadFromConfig(config)
 
 func SendAudioSettingsUpdated(audioSettings: AudioSettings):
-        AudioSettingsUpdated.emit(audioSettings)
+		AudioSettingsUpdated.emit(audioSettings)
 
 func SendGraphicsSettingsUpdated(graphicsSettings: GraphicsSettings):
-        GraphicsSettingsUpdated.emit(graphicsSettings)
+		GraphicsSettingsUpdated.emit(graphicsSettings)
