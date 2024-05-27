@@ -87,6 +87,23 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Terrain"
+2d_render/layer_2="Objects"
+2d_render/layer_3="Units"
+2d_render/layer_4="Enemies"
+2d_render/layer_5="Player"
+2d_physics/layer_1="Terrain"
+2d_navigation/layer_1="Walkable"
+2d_physics/layer_2="Objects"
+2d_navigation/layer_2="Flyable"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Units"
+2d_physics/layer_5="Enemy"
+avoidance/layer_1="Units"
+avoidance/layer_2="Enemies"
+
 [physics]
 
 2d/default_gravity=0.0
