@@ -95,6 +95,22 @@ pause={
 
 [layer_names]
 
+2d_render/layer_1="Terrain"
+2d_render/layer_2="Obsticles"
+2d_render/layer_3="Buildings"
+2d_render/layer_4="Enemy"
+2d_render/layer_5="Player"
+2d_physics/layer_1="Terrain"
+2d_navigation/layer_1="Walkable"
+2d_physics/layer_2="Obsticles"
+2d_navigation/layer_2="Flyable"
+2d_physics/layer_3="PlayerNav"
+2d_physics/layer_4="EnemyNav"
+2d_physics/layer_5="PlayerHitbox"
+2d_physics/layer_6="EnemyHitbox"
+2d_physics/layer_7="Buildings"
+2d_physics/layer_8="PlayerProjectiles"
+2d_physics/layer_9="EnemyProjectiles"
 <<<<<<<HEAD2d_physics/layer_1="player"
 
 [physics]

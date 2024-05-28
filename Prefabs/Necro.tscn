@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://vsrauxj0p1gw"]
+[gd_scene load_steps=6 format=3 uid="uid://vsrauxj0p1gw"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0vqda"]
-[ext_resource type="PackedScene" path="res://Prefabs/BasicBullet.tscn" id="2_tr715"]
 [ext_resource type="SpriteFrames" uid="uid://qsyv386lbbbu" path="res://Assets/Sprites/Characters/Necro/Necro_frames.tres" id="3_dw52n"]
 [ext_resource type="Script" path="res://Scripts/GameObjects/staff.gd" id="4_bnbe1"]
 [ext_resource type="PackedScene" uid="uid://dlapdvur84nmc" path="res://Prefabs/Fireball.tscn" id="5_6j6cn"]
@@ -11,8 +10,9 @@ radius = 8.0
 height = 28.0
 
 [node name="necro" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 289
 script = ExtResource("1_0vqda")
-bullet = ExtResource("2_tr715")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
@@ -24,9 +24,12 @@ animation = &"cast_east"
 shape = SubResource("CapsuleShape2D_3r0x6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+max_speed = 300.0
 debug_enabled = true
 
 [node name="camera2d" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true

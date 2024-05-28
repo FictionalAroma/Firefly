@@ -1,17 +1,38 @@
-class_name BasicBullet extends RigidBody2D
+class_name BasicBullet extends Area2D
 
 @export var bulletStats: ProjectileStats
 
-var timeToLiveRemain: float
+@onready var spriteAnimation : AnimatedSprite2D = $animatedSprite2d
 
+var distanceToRemain: float
+var direction: Vector2
 func _ready():
-	timeToLiveRemain= bulletStats.timeToLive;
+	distanceToRemain= bulletStats.baseRange;
+	spriteAnimation.play()
+
 
 func initalise(pointDirection: Vector2) -> void:
-	linear_velocity = pointDirection.normalized() * bulletStats.baseSpeed
-	
+	direction = pointDirection
+	global_rotation = pointDirection.angle()
+
 
 func _physics_process(delta:float) -> void:
-	timeToLiveRemain -= delta
-	if timeToLiveRemain <= 0.0:
-		queue_free()
+	var vecocity = direction * bulletStats.baseSpeed * delta
+	global_position += vecocity
+	distanceToRemain -= vecocity.length()
+	print(distanceToRemain)
+
+	if distanceToRemain <= 0.0:
+		print("dead by time")
+		Remove()
+
+func onarea_entered(_area: Area2D):
+	Remove()
+
+
+func Remove():
+	call_deferred("queue_free")
+
+
+func HitPhysicalObject(_body:Node2D):
+	Remove()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ProjectileStats" load_steps=3 format=3 uid="uid://g4ca76lm23lo"]
+
+[ext_resource type="Script" path="res://Scripts/ResourceScripts/Attacks/ProjectileStats.gd" id="1_hk51a"]
+[ext_resource type="SpriteFrames" uid="uid://cg0feb6vvyha0" path="res://Recourses/animations/fireball_frames.tres" id="2_xftuq"]
+
+[resource]
+script = ExtResource("1_hk51a")
+baseRange = 1000.0
+baseSpeed = 500.0
+baseDamageValue = 5
+spriteToUse = ExtResource("2_xftuq")

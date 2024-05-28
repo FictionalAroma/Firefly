@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_r5uw1"]
 script = ExtResource("2_7fu54")
-timeToLive = 2.0
-baseSpeed = 40.0
+baseRange = 2.0
+baseSpeed = 1000.0
 baseDamageValue = 5
 spriteToUse = ExtResource("1_qk43g")
 
