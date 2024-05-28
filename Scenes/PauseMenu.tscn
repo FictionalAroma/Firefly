@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3e3rqriswvcl"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_7fyk1"]
+
+[sub_resource type="Theme" id="Theme_t8620"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_32ij4"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_7ca8t"]
+default_font_size = 40
+
+[node name="pause_menu" type="CanvasLayer"]
+script = ExtResource("1_7fyk1")
+
+[node name="colorRect" type="ColorRect" parent="."]
+offset_left = -33.0
+offset_top = -31.0
+offset_right = 1345.0
+offset_bottom = 862.0
+color = Color(0.258824, 0.258824, 0.258824, 0.631373)
+
+[node name="marginContainer" type="MarginContainer" parent="."]
+offset_left = 505.0
+offset_top = 377.0
+offset_right = 778.0
+offset_bottom = 592.0
+
+[node name="vBoxContainer" type="VBoxContainer" parent="marginContainer"]
+layout_mode = 2
+
+[node name="resume_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_t8620")
+text = "RESUME"
+
+[node name="menu_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_32ij4")
+text = "MENU"
+
+[node name="settings_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7ca8t")
+text = "SETTINGS"
+
+[node name="quit_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_t8620")
+text = "QUIT"
+
+[connection signal="pressed" from="marginContainer/vBoxContainer/resume_button" to="." method="onresume_buttonpressed"]
+[connection signal="pressed" from="marginContainer/vBoxContainer/quit_button" to="." method="onquit_buttonpressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkf8nh85qoycs"]
+
+[ext_resource type="Script" path="res://Scripts/GameObjects/Skelleton.gd" id="1_8x6ov"]
+[ext_resource type="SpriteFrames" uid="uid://ctqiorl5h5bto" path="res://Assets/Sprites/Characters/heroes_anims/Variant 1/hero_1_frames.tres" id="2_ekhfp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au3i5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fblf"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ejt"]
+bg_color = Color(1, 0.137255, 0, 1)
+
+[sub_resource type="Theme" id="Theme_6g4vm"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
+
+[node name="hero_v1" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_8x6ov")
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_ekhfp")
+animation = &"idle_east"
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_au3i5")
+
+[node name="progressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -15.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = -19.0
+theme = SubResource("Theme_6g4vm")
+max_value = 15.0
+value = 15.0
+show_percentage = false

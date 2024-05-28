@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvi1tsetnvf6h"]
+
+[ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_uwfwn"]
+
+[sub_resource type="Theme" id="Theme_luj5e"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_mwukr"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_0oork"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_guosp"]
+default_font_size = 40
+
+[node name="start_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwfwn")
+
+[node name="colorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1293.0
+offset_bottom = 810.0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="marginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 314.0
+offset_right = 708.0
+offset_bottom = 578.0
+
+[node name="vBoxContainer" type="VBoxContainer" parent="marginContainer"]
+layout_mode = 2
+
+[node name="start_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_luj5e")
+text = "START"
+
+[node name="settings_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mwukr")
+text = "SETTINGS"
+
+[node name="credits_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0oork")
+text = "CREDITS"
+
+[node name="quit_button" type="Button" parent="marginContainer/vBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_guosp")
+text = "QUIT"
+
+[connection signal="pressed" from="marginContainer/vBoxContainer/start_button" to="." method="onstart_buttonpressed"]
+[connection signal="pressed" from="marginContainer/vBoxContainer/quit_button" to="." method="onquit_buttonpressed"]

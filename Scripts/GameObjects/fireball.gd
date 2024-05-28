@@ -11,7 +11,7 @@ func _physics_process(delta):
 
 
 func onarea_entered(area):
-	area.die()
+	area.hit()
 	queue_free()
 
 func onvisible_on_screen_enabler_2dscreen_exited():

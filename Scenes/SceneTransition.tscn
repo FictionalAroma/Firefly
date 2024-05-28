@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj4u18k6kufnp"]
+
+[ext_resource type="Script" path="res://Scripts/Globals/SceneTransition.gd" id="1_n3b8s"]
+
+[sub_resource type="Animation" id="Animation_2qcdb"]
+resource_name = "scene_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("colorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_383y4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("colorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7en2"]
+_data = {
+"RESET": SubResource("Animation_383y4"),
+"scene_fade": SubResource("Animation_2qcdb")
+}
+
+[node name="scene_transition" type="Node2D"]
+script = ExtResource("1_n3b8s")
+
+[node name="colorRect" type="ColorRect" parent="."]
+z_index = 100
+offset_left = -41164.0
+offset_top = -19865.0
+offset_right = 68141.0
+offset_bottom = 47628.0
+color = Color(0, 0, 0, 0)
+
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u7en2")
+}
