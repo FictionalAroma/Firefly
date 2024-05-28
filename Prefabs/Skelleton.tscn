@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkf8nh85qoycs"]
+
+[ext_resource type="Script" path="res://Scripts/GameObjects/Skelleton.gd" id="1_8x6ov"]
+[ext_resource type="SpriteFrames" uid="uid://cmetvu3htogwk" path="res://Assets/Sprites/Characters/skeleton/skeleton_frames.tres" id="1_lmvat"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au3i5"]
+
+[node name="skelleton" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_8x6ov")
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_lmvat")
+animation = &"idle_east"
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_au3i5")

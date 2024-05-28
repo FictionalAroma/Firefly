@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://vsrauxj0p1gw"]
+[gd_scene load_steps=14 format=3 uid="uid://vsrauxj0p1gw"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0vqda"]
-[ext_resource type="PackedScene" uid="uid://ci5lye1dlxssy" path="res://Prefabs/BasicBullet.tscn" id="2_tr715"]
+[ext_resource type="PackedScene" path="res://Prefabs/BasicBullet.tscn" id="2_tr715"]
 [ext_resource type="Texture2D" uid="uid://dq86y1hkmcod3" path="res://Assets/Sprites/Characters/firefly fly.png" id="3_fqj1t"]
+[ext_resource type="Script" path="res://Scripts/GameObjects/staff.gd" id="4_bnbe1"]
+[ext_resource type="PackedScene" uid="uid://dlapdvur84nmc" path="res://Prefabs/Fireball.tscn" id="5_6j6cn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aae6d"]
 atlas = ExtResource("3_fqj1t")
@@ -98,3 +100,13 @@ drag_left_margin = 0.3
 drag_top_margin = 0.3
 drag_right_margin = 0.3
 drag_bottom_margin = 0.3
+
+[node name="staff" type="Node2D" parent="."]
+script = ExtResource("4_bnbe1")
+fireball_scene = ExtResource("5_6j6cn")
+
+[node name="colorRect" type="ColorRect" parent="staff"]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 2.0

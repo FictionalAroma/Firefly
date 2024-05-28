@@ -2,6 +2,7 @@ class_name PlayerController extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var staff = $staff
 
 @export var bullet: PackedScene;
 
@@ -19,6 +20,7 @@ func _physics_process(delta):
 		navigation_agent.target_position = click_position
 	
 	if Input.is_action_just_pressed("attack-basic"):
+		staff.cast_fireball()
 		click_position = get_local_mouse_position()
 		print("bullet position = %v - Player Position %v" % [click_position, global_position])
 		var newProjectile:BasicBullet = bullet.instantiate();
