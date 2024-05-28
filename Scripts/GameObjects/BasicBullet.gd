@@ -6,12 +6,16 @@ class_name BasicBullet extends Area2D
 
 var distanceToRemain: float
 var direction: Vector2
+
 func _ready():
-	distanceToRemain= bulletStats.baseRange;
 	spriteAnimation.play()
 
 
-func initalise(pointDirection: Vector2) -> void:
+func initalise(intialPosition: Vector2, pointDirection: Vector2) -> void:
+	global_position = intialPosition
+	distanceToRemain= bulletStats.baseRange
+
+
 	direction = pointDirection
 	global_rotation = pointDirection.angle()
 
@@ -31,7 +35,7 @@ func onarea_entered(_area: Area2D):
 
 
 func Remove():
-	call_deferred("queue_free")
+	get_parent().remove_child(self)
 
 
 func HitPhysicalObject(_body:Node2D):
