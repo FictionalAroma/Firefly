@@ -1,3 +1,5 @@
+extends Node
+
 enum EnemyState {
 	NONE = 0, # null equivelent = means dont change
 	# not in the scene yet or not active on the map

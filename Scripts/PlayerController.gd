@@ -6,6 +6,10 @@ class_name PlayerController extends CharacterBody2D
 
 # @export var bullet: PackedScene;
 
+func _ready():
+	staff.ownerOfProjectile = self
+	staff.spawnProjectileTargetNode = get_parent()
+
 var click_position := Vector2()
 var target_position := Vector2()
 var speed:float = 10000.0
@@ -19,8 +23,10 @@ func _physics_process(delta: float):
 		navigation_agent.target_position = click_position
 
 
-	if Input.is_action_just_pressed("attack-basic"):
-		staff.cast_fireball()
+	if Input.is_action_pressed("attack-basic"):
+		staff.try_cast_fireball()
+	elif Input.is_action_just_released("attack-basic"):
+		pass
 
 
 	if !navigation_agent.is_navigation_finished():

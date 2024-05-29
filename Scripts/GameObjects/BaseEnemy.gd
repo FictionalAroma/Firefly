@@ -3,7 +3,7 @@ var maxHP = 15
 var currentHP = maxHP
 @onready var health_bar = $progressBar
 
-
+var stateContext: EnemyStateContext = EnemyStateContext.new()
 
 func hitbox_hit(area: Area2D):
 	var bullet := area as BasicBullet

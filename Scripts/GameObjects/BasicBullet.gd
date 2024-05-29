@@ -31,13 +31,15 @@ func _physics_process(delta:float) -> void:
 		print("dead by time")
 		Remove()
 
-func onarea_entered(_area: Area2D):
+func onarea_entered(_area: Area2D) -> void:
 	Remove()
 
 
-func Remove():
+func Remove() -> void:
+	call_deferred("DifferedRemove")
+
+func DifferedRemove() -> void:
 	get_parent().remove_child(self)
 
-
-func HitPhysicalObject(_body:Node2D):
+func HitPhysicalObject(_body:Node2D)  -> void:
 	Remove()
