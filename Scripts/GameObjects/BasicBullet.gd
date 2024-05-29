@@ -6,15 +6,16 @@ class_name BasicBullet extends Area2D
 
 var distanceToRemain: float
 var direction: Vector2
+var projectileOwner: Node
 
 func _ready():
 	spriteAnimation.play()
 
 
-func initalise(intialPosition: Vector2, pointDirection: Vector2) -> void:
+func initalise(shooter: Node, intialPosition: Vector2, pointDirection: Vector2) -> void:
 	global_position = intialPosition
 	distanceToRemain= bulletStats.baseRange
-
+	projectileOwner = shooter
 
 	direction = pointDirection
 	global_rotation = pointDirection.angle()

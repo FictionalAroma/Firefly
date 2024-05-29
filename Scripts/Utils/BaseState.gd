@@ -1,4 +1,4 @@
-class_name EnemyBaseState extends RefCounted
+class_name BaseState extends RefCounted
 
 func EnterState() -> void:
 	pass
@@ -6,5 +6,5 @@ func EnterState() -> void:
 func ExitState() -> void:
 	pass
 
-func Update() -> void:
-	pass
+func Update(_delta:float) -> int:
+	return 0

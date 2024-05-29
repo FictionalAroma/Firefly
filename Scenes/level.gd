@@ -1,18 +1,20 @@
-extends Node2D
+class_name LevelController extends Node2D
 @onready var necro = $necro
 @onready var pause_menu = $pause_menu
 
-func _physics_process(delta):
+func _physics_process(_delta:float):
 	if Input.is_action_just_pressed("pause"):
-		pause()
+		toggle_pause()
 
-func pause():
-	var paused = get_tree().paused
-	if paused:
+func toggle_pause() -> void:
+	pause(!get_tree().paused)
+
+func pause(pauseValue: bool) -> void:
+	if pauseValue:
 		pause_menu.hide()
 	else:
 		pause_menu.show()
-	get_tree().paused = !paused
+	get_tree().paused = pauseValue
 
 func onpause_menupause():
-	pause()
+	toggle_pause()

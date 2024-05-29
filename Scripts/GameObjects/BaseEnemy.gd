@@ -3,6 +3,8 @@ var maxHP = 15
 var currentHP = maxHP
 @onready var health_bar = $progressBar
 
+
+
 func hitbox_hit(area: Area2D):
 	var bullet := area as BasicBullet
 	if bullet != null:
