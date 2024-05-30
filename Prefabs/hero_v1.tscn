@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkf8nh85qoycs"]
+[gd_scene load_steps=8 format=3 uid="uid://dkf8nh85qoycs"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/BaseEnemy.gd" id="1_uhx14"]
 [ext_resource type="SpriteFrames" uid="uid://ctqiorl5h5bto" path="res://Assets/Sprites/Characters/heroes_anims/Variant 1/hero_1_frames.tres" id="2_ekhfp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au3i5"]
-radius = 6.0
+[ext_resource type="Shape2D" uid="uid://cx68grqoml6w5" path="res://Prefabs/hero_v1_hitbox.tres" id="2_l1mby"]
+[ext_resource type="Shape2D" uid="uid://xu6stvf4oypk" path="res://Recourses/physicsthings/foot-movement-area.tres" id="3_1lydl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fblf"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -16,19 +15,27 @@ bg_color = Color(1, 0.137255, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
 
-[node name="hero_v1" type="Area2D"]
-collision_layer = 32
-collision_mask = 128
+[node name="hero_v1" type="CharacterBody2D"]
 script = ExtResource("1_uhx14")
 
+[node name="hero_v1" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 128
+
+[node name="hitbox" type="CollisionShape2D" parent="hero_v1"]
+position = Vector2(0, -13)
+shape = ExtResource("2_l1mby")
+
 [node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -13)
 sprite_frames = ExtResource("2_ekhfp")
 animation = &"idle_east"
 
-[node name="collisionShape2d" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_au3i5")
+[node name="movementShape" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = ExtResource("3_1lydl")
 
-[node name="progressBar" type="ProgressBar" parent="."]
+[node name="hpBar" type="ProgressBar" parent="."]
 visible = false
 offset_left = -15.0
 offset_top = -23.0
@@ -39,4 +46,4 @@ max_value = 15.0
 value = 15.0
 show_percentage = false
 
-[connection signal="area_entered" from="." to="." method="hitbox_hit"]
+[connection signal="area_entered" from="hero_v1" to="hero_v1" method="hitbox_hit"]

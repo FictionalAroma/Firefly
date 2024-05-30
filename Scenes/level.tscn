@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjywh3rvcxhif"]
 
-[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/necro.tscn" id="1_dsgnu"]
+[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/Necro.tscn" id="1_dsgnu"]
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_fc8c1"]
 [ext_resource type="TileSet" uid="uid://cb4as7whlwq12" path="res://Recourses/cursed_grey_land.tres" id="3_8pl8x"]
 [ext_resource type="PackedScene" uid="uid://d3e3rqriswvcl" path="res://Scenes/PauseMenu.tscn" id="5_o5e5c"]

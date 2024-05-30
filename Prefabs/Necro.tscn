@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0vqda"]
 [ext_resource type="SpriteFrames" uid="uid://qsyv386lbbbu" path="res://Assets/Sprites/Characters/Necro/Necro_frames.tres" id="3_dw52n"]
-[ext_resource type="PackedScene" uid="uid://s55dh7xm7mfo" path="res://Prefabs/FireBoom.tscn" id="4_8mm38"]
+[ext_resource type="Shape2D" uid="uid://xu6stvf4oypk" path="res://Recourses/physicsthings/foot-movement-area.tres" id="3_itp20"]
+[ext_resource type="PackedScene" path="res://Prefabs/FireBoom.tscn" id="4_8mm38"]
 [ext_resource type="Script" path="res://Scripts/GameObjects/staff.gd" id="4_bnbe1"]
 [ext_resource type="PackedScene" uid="uid://dlapdvur84nmc" path="res://Prefabs/Fireball.tscn" id="5_6j6cn"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3r0x6"]
-radius = 8.0
-height = 28.0
 
 [node name="necro" type="CharacterBody2D"]
 collision_layer = 16
@@ -17,12 +14,13 @@ script = ExtResource("1_0vqda")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
-position = Vector2(-1, -2)
+position = Vector2(0, -13)
 sprite_frames = ExtResource("3_dw52n")
 animation = &"attack_west"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_3r0x6")
+rotation = 1.5708
+shape = ExtResource("3_itp20")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 max_speed = 300.0
@@ -41,6 +39,7 @@ drag_right_margin = 0.3
 drag_bottom_margin = 0.3
 
 [node name="staff" type="Node2D" parent="."]
+position = Vector2(-12, -11)
 script = ExtResource("4_bnbe1")
 fireboom_scene = ExtResource("4_8mm38")
 fireball_scene = ExtResource("5_6j6cn")
