@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vsrauxj0p1gw"]
+[gd_scene load_steps=7 format=3 uid="uid://vsrauxj0p1gw"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0vqda"]
 [ext_resource type="SpriteFrames" uid="uid://qsyv386lbbbu" path="res://Assets/Sprites/Characters/Necro/Necro_frames.tres" id="3_dw52n"]
+[ext_resource type="PackedScene" uid="uid://s55dh7xm7mfo" path="res://Prefabs/FireBoom.tscn" id="4_8mm38"]
 [ext_resource type="Script" path="res://Scripts/GameObjects/staff.gd" id="4_bnbe1"]
 [ext_resource type="PackedScene" uid="uid://dlapdvur84nmc" path="res://Prefabs/Fireball.tscn" id="5_6j6cn"]
 
@@ -18,7 +19,7 @@ script = ExtResource("1_0vqda")
 z_index = 2
 position = Vector2(-1, -2)
 sprite_frames = ExtResource("3_dw52n")
-animation = &"cast_east"
+animation = &"attack_west"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3r0x6")
@@ -41,4 +42,5 @@ drag_bottom_margin = 0.3
 
 [node name="staff" type="Node2D" parent="."]
 script = ExtResource("4_bnbe1")
+fireboom_scene = ExtResource("4_8mm38")
 fireball_scene = ExtResource("5_6j6cn")
