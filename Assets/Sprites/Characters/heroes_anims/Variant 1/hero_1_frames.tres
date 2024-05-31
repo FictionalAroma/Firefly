@@ -458,7 +458,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1gxve")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_east",
 "speed": 5.0
 }, {
@@ -481,9 +481,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fqdak")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_north",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -504,7 +504,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4m8hs")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_south",
 "speed": 5.0
 }, {
@@ -527,7 +527,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8nyyq")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_west",
 "speed": 5.0
 }, {
@@ -565,7 +565,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yemdr")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_east",
 "speed": 5.0
 }, {
@@ -603,7 +603,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2udcy")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_north",
 "speed": 5.0
 }, {
@@ -641,7 +641,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ooqdp")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_south",
 "speed": 5.0
 }, {
@@ -679,7 +679,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v3v8k")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_west",
 "speed": 5.0
 }, {

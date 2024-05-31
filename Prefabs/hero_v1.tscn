@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkf8nh85qoycs"]
+[gd_scene load_steps=9 format=3 uid="uid://dkf8nh85qoycs"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/BaseEnemy.gd" id="1_uhx14"]
 [ext_resource type="SpriteFrames" uid="uid://ctqiorl5h5bto" path="res://Assets/Sprites/Characters/heroes_anims/Variant 1/hero_1_frames.tres" id="2_ekhfp"]
 [ext_resource type="Shape2D" uid="uid://cx68grqoml6w5" path="res://Prefabs/hero_v1_hitbox.tres" id="2_l1mby"]
 [ext_resource type="Shape2D" uid="uid://xu6stvf4oypk" path="res://Recourses/physicsthings/foot-movement-area.tres" id="3_1lydl"]
+[ext_resource type="Script" path="res://Scripts/Utils/AnimatedSpriteDirectionController.gd" id="4_xnyl4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fblf"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -16,6 +17,8 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
 
 [node name="hero_v1" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 79
 script = ExtResource("1_uhx14")
 
 [node name="hero_v1" type="Area2D" parent="."]
@@ -26,10 +29,11 @@ collision_mask = 128
 position = Vector2(0, -13)
 shape = ExtResource("2_l1mby")
 
-[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -13)
 sprite_frames = ExtResource("2_ekhfp")
 animation = &"idle_east"
+script = ExtResource("4_xnyl4")
 
 [node name="movementShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -46,4 +50,13 @@ max_value = 15.0
 value = 15.0
 show_percentage = false
 
-[connection signal="area_entered" from="hero_v1" to="hero_v1" method="hitbox_hit"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 40.0
+target_desired_distance = 20.0
+path_max_distance = 500.0
+avoidance_enabled = true
+avoidance_layers = 2
+avoidance_mask = 2
+debug_enabled = true
+
+[connection signal="area_entered" from="hero_v1" to="." method="hitbox_hit"]

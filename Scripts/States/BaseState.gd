@@ -8,3 +8,4 @@ func ExitState() -> void:
 
 func Update(_delta:float) -> int:
 	return 0
+

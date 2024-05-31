@@ -4,9 +4,11 @@ var stateContext: EnemyStateContext
 
 func _init(context: EnemyStateContext):
 	stateContext = context
+func SetTarget(target: Node2D):
+	stateContext.attackTarget = target
 
-func TakeDamage(_combatant: Node2D) -> int:
-	return 0
+func UpdatePathfinding(target: Node2D):
+	# if we have an attack target set, update target position
+	if target != null:
+		stateContext.pathfinder.target_position = target.global_position			
 
-func InRangeOf(_thing: Node2D) -> int:
-	return 0

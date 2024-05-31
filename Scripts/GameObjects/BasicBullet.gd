@@ -39,7 +39,9 @@ func Remove() -> void:
 	call_deferred("DifferedRemove")
 
 func DifferedRemove() -> void:
-	get_parent().remove_child(self)
+	var parent = get_parent()
+	if parent != null:
+		parent.remove_child(self)
 
 func HitPhysicalObject(_body:Node2D)  -> void:
 	Remove()

@@ -112,6 +112,8 @@ pause={
 2d_physics/layer_7="Buildings"
 2d_physics/layer_8="PlayerProjectiles"
 2d_physics/layer_9="EnemyProjectiles"
+avoidance/layer_1="Player"
+avoidance/layer_2="EnemyUnits"
 <<<<<<<HEAD2d_physics/layer_1="player"
 
 [physics]
