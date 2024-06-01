@@ -10,7 +10,7 @@ var current_hp = max_hp
 func _physics_process(delta):
 	hp_bar.value = current_hp
 	animation_management()
-	print(hp_bar_timer.time_left)
+	
 	
 
 func take_damage(damage_amount):

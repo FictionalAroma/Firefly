@@ -6,17 +6,25 @@
 script = ExtResource("1_kj3xs")
 
 [node name="spawn_1" type="Marker2D" parent="."]
+position = Vector2(11, 18)
 
 [node name="spawn_2" type="Marker2D" parent="."]
+position = Vector2(2455, 10)
 
 [node name="spawn_3" type="Marker2D" parent="."]
+position = Vector2(4794, 215)
 
 [node name="spawn_4" type="Marker2D" parent="."]
+position = Vector2(4787, 1576)
 
 [node name="spawn_5" type="Marker2D" parent="."]
+position = Vector2(4762, 3175)
 
 [node name="spawn_6" type="Marker2D" parent="."]
+position = Vector2(2516, 3189)
 
 [node name="spawn_7" type="Marker2D" parent="."]
+position = Vector2(39, 3182)
 
 [node name="spawn_8" type="Marker2D" parent="."]
+position = Vector2(10, 1550)
