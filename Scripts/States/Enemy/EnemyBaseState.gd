@@ -12,3 +12,8 @@ func UpdatePathfinding(target: Node2D):
 	if target != null:
 		stateContext.pathfinder.target_position = target.global_position			
 
+func TakeDamage(_combatant: Node2D) -> int:
+	return 0
+
+func InRangeOf(_thing: Node2D) -> int:
+	return 0

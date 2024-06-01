@@ -1,6 +1,8 @@
 class_name LevelController extends Node2D
-@onready var necro = $necro
+@onready var necro : PlayerController = $necro
 @onready var pause_menu = $pause_menu
+@onready var castle : Castle = $Castle
+
 
 func _physics_process(_delta:float):
 	if Input.is_action_just_pressed("pause"):

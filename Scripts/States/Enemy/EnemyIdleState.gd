@@ -5,6 +5,7 @@ func TakeDamage(combatant: Node2D) -> int:
 	return Constants.EnemyState.ATTACKING
 
 func InRangeOf(_thing: Node2D) -> int:
-	return 0
+	stateContext.attackTarget = _thing
+	return Constants.EnemyState.ATTACKING
 
 
