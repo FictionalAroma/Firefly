@@ -1,11 +1,19 @@
 class_name BaseCharacter extends CharacterBody2D
 
+@export var max_hp := 100
+var current_hp := max_hp 
+var is_dead: bool:
+	get: 
+		return current_hp <= 0 || !is_inside_tree()
+
 @onready var animated_sprite: AnimatedSpriteDirectionController = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 @export var speed:float = 10000.0
 
 var direction: Constants.Direction = Constants.Direction.SOUTH
+
+@onready var cachedLevel: LevelController = get_node("/root/level") as LevelController
 
 func _physics_process(delta: float):
 	if !navigation_agent.is_navigation_finished():

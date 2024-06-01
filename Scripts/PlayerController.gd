@@ -1,7 +1,5 @@
 class_name PlayerController extends BaseCharacter
 
-var max_hp := 100
-var current_hp := max_hp 
 @onready var staff : Staff = $staff
 @onready var level = get_parent()
 

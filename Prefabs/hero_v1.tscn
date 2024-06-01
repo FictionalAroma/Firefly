@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://dkf8nh85qoycs"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/BaseEnemy.gd" id="1_uhx14"]
+[ext_resource type="SpriteFrames" uid="uid://c87at8y83ih17" path="res://Assets/Sprites/Characters/heroes_anims/Variant 4/hero_4_frames.tres" id="2_1k4k7"]
 [ext_resource type="SpriteFrames" uid="uid://ctqiorl5h5bto" path="res://Assets/Sprites/Characters/heroes_anims/Variant 1/hero_1_frames.tres" id="2_ekhfp"]
 [ext_resource type="Shape2D" uid="uid://cx68grqoml6w5" path="res://Prefabs/hero_v1_hitbox.tres" id="2_l1mby"]
 [ext_resource type="Shape2D" uid="uid://xu6stvf4oypk" path="res://Recourses/physicsthings/foot-movement-area.tres" id="3_1lydl"]
-[ext_resource type="SpriteFrames" uid="uid://dhb8em7a4sxlv" path="res://Assets/Sprites/Characters/heroes_anims/Variant 2/hero_2_frames.tres" id="3_n60co"]
-[ext_resource type="SpriteFrames" uid="uid://bdbiodj3t5djh" path="res://Assets/Sprites/Characters/heroes_anims/Variant 3/hero_3_frames.tres" id="4_rjl12"]
+[ext_resource type="SpriteFrames" uid="uid://dhb8em7a4sxlv" path="res://Assets/Sprites/Characters/heroes_anims/Variant 2/hero_2_frames.tres" id="3_km63p"]
+[ext_resource type="SpriteFrames" uid="uid://bdbiodj3t5djh" path="res://Assets/Sprites/Characters/heroes_anims/Variant 3/hero_3_frames.tres" id="4_0j74k"]
 [ext_resource type="Script" path="res://Scripts/Utils/AnimatedSpriteDirectionController.gd" id="4_xnyl4"]
-[ext_resource type="SpriteFrames" uid="uid://c87at8y83ih17" path="res://Assets/Sprites/Characters/heroes_anims/Variant 4/hero_4_frames.tres" id="5_q2kv0"]
-[ext_resource type="SpriteFrames" uid="uid://c5i1ckereeigw" path="res://Assets/Sprites/Characters/heroes_anims/Variant 5/hero_5_frames.tres" id="6_5p03v"]
+[ext_resource type="SpriteFrames" uid="uid://c5i1ckereeigw" path="res://Assets/Sprites/Characters/heroes_anims/Variant 5/hero_5_frames.tres" id="6_dau8o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fblf"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -23,8 +23,9 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
 [node name="hero_v1" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 79
+motion_mode = 1
 script = ExtResource("1_uhx14")
-possible_skins = Array[SpriteFrames]([ExtResource("2_ekhfp"), ExtResource("3_n60co"), ExtResource("4_rjl12"), ExtResource("5_q2kv0"), ExtResource("6_5p03v")])
+possible_skins = Array[SpriteFrames]([ExtResource("2_ekhfp"), ExtResource("3_km63p"), ExtResource("4_0j74k"), ExtResource("2_1k4k7"), ExtResource("6_dau8o")])
 
 [node name="hero_v1" type="Area2D" parent="."]
 collision_layer = 32
