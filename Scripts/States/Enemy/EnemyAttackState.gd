@@ -14,6 +14,9 @@ func InRangeOf(_thing: Node2D) -> int:
 func Update(delta: float)->int:
 	pathfindingUpdateTimer -= delta
 	if pathfindingUpdateTimer < 0:
+		if stateContext.attackTarget.is_dead:
+			return Constants.EnemyState.INVADING if stateContext.isCrusading else Constants.EnemyState.IDLE
+
 		UpdatePathfinding(stateContext.attackTarget)
 		pathfindingUpdateTimer = 2.0
 
