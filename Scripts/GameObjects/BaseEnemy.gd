@@ -35,3 +35,6 @@ func Kill():
 	await get_tree().create_timer(0.3).timeout
 	health_bar.visible = false
 	queue_free()
+
+func initalise(initial_position):
+	global_position = initial_position

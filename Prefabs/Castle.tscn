@@ -142,20 +142,22 @@ collision_mask = 128
 script = ExtResource("1_yb36w")
 
 [node name="hp_bar" type="ProgressBar" parent="."]
-visible = false
-offset_right = 549.0
-offset_bottom = 10.0
+offset_left = -282.0
+offset_top = -324.0
+offset_right = 267.0
+offset_bottom = -314.0
 theme = SubResource("Theme_t8s1l")
 max_value = 200.0
 value = 200.0
 show_percentage = false
 
 [node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
-position = Vector2(293, 298)
+position = Vector2(11, -26)
 sprite_frames = SubResource("SpriteFrames_12o4c")
 animation = &"10"
 
 [node name="collisionPolygon2d" type="CollisionPolygon2D" parent="."]
+position = Vector2(-282, -324)
 polygon = PackedVector2Array(178, 448, 214, 466, 259, 448, 312, 475, 339, 464, 364, 477, 411, 458, 411, 385, 385, 347, 363, 353, 345, 326, 342, 293, 331, 286, 328, 247, 335, 243, 282, 152, 229, 243, 235, 251, 234, 274, 218, 257, 176, 330)
 
 [node name="hp_bar_timer" type="Timer" parent="."]
