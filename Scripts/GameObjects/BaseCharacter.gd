@@ -21,7 +21,14 @@ func _physics_process(delta: float):
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 
 		velocity = current_agent_position.direction_to(next_path_position) * speed * delta
-		move_and_slide()
+		if navigation_agent.avoidance_enabled:
+			navigation_agent.velocity = velocity
+		else:
+			move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+
+func _on_velocity_computed(safe_velocity: Vector2):
+	velocity = safe_velocity
+	move_and_slide()
 

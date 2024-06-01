@@ -22,4 +22,16 @@ autostart = true
 [node name="sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("3_bfnh3")
 
+[node name="staticBody2d" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="collisionPolygon2d" type="CollisionPolygon2D" parent="staticBody2d"]
+polygon = PackedVector2Array(-78, -70, -78, 60, 11, 62, 13, 14, 80, 12, 80, -70)
+
+[node name="navigationObstacle2d" type="NavigationObstacle2D" parent="."]
+radius = 10.0
+vertices = PackedVector2Array(-78, -70, -79, 59, 10, 61, 15, 12, 80, 12, 81, -71)
+avoidance_layers = 2
+
 [connection signal="timeout" from="timer" to="." method="ontimertimeout"]

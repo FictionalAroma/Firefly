@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkf8nh85qoycs"]
+[gd_scene load_steps=14 format=3 uid="uid://dkf8nh85qoycs"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/BaseEnemy.gd" id="1_uhx14"]
 [ext_resource type="SpriteFrames" uid="uid://c87at8y83ih17" path="res://Assets/Sprites/Characters/heroes_anims/Variant 4/hero_4_frames.tres" id="2_1k4k7"]
@@ -19,6 +19,9 @@ bg_color = Color(1, 0.137255, 0, 1)
 [sub_resource type="Theme" id="Theme_6g4vm"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gv3h6"]
+radius = 60.0
 
 [node name="hero_v1" type="CharacterBody2D"]
 collision_layer = 8
@@ -60,9 +63,20 @@ show_percentage = false
 path_desired_distance = 40.0
 target_desired_distance = 20.0
 path_max_distance = 500.0
-avoidance_enabled = true
+neighbor_distance = 100.0
 avoidance_layers = 2
 avoidance_mask = 2
 debug_enabled = true
 
+[node name="avoidance_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 76
+monitorable = false
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="avoidance_area"]
+shape = SubResource("CircleShape2D_gv3h6")
+
 [connection signal="area_entered" from="hero_v1" to="." method="hitbox_hit"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_velocity_computed"]
+[connection signal="body_entered" from="avoidance_area" to="." method="avoidanceActivationAreaEntered"]
+[connection signal="body_exited" from="avoidance_area" to="." method="avoidanceActivationArea"]

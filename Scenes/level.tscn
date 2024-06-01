@@ -26,7 +26,7 @@ position = Vector2(221, 309)
 position = Vector2(399, 165)
 
 [node name="necro" parent="." instance=ExtResource("1_dsgnu")]
-position = Vector2(181, 131)
+position = Vector2(575, 524)
 
 [node name="tileMap" type="TileMap" parent="."]
 y_sort_enabled = true
