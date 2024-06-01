@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjywh3rvcxhif"]
+[gd_scene load_steps=9 format=3 uid="uid://cjywh3rvcxhif"]
 
 [ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/necro.tscn" id="1_dsgnu"]
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_fc8c1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvb488rh1ggrc" path="res://Prefabs/Castle.tscn" id="6_0eokt"]
 [ext_resource type="PackedScene" uid="uid://dkf8nh85qoycs" path="res://Prefabs/hero_v1.tscn" id="6_fs026"]
 [ext_resource type="PackedScene" uid="uid://6mcteg0217m6" path="res://Scenes/HumanSpawner.tscn" id="7_unpvj"]
+[ext_resource type="PackedScene" uid="uid://dbt1go0o51dve" path="res://Prefabs/Ui.tscn" id="8_kv80s"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_fc8c1")
@@ -50,5 +51,7 @@ position = Vector2(2322, 1362)
 
 [node name="human_spawner" parent="." instance=ExtResource("7_unpvj")]
 position = Vector2(641, 159)
+
+[node name="UI" parent="." instance=ExtResource("8_kv80s")]
 
 [connection signal="pause" from="pause_menu" to="." method="onpause_menupause"]

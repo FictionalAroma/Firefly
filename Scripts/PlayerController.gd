@@ -3,6 +3,7 @@ class_name PlayerController extends BaseCharacter
 var max_hp := 100
 var current_hp := max_hp 
 @onready var staff : Staff = $staff
+@onready var level = get_parent()
 
 # @export var bullet: PackedScene;
 
@@ -33,4 +34,5 @@ func _physics_process(delta: float):
 	
 func take_damage(damage_amount):
 	current_hp -= damage_amount
+	level.update_player_hp(current_hp)
 

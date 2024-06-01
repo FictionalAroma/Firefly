@@ -1,6 +1,9 @@
 class_name LevelController extends Node2D
 @onready var necro = $necro
 @onready var pause_menu = $pause_menu
+@onready var ui = $UI
+
+var current_player_hp
 
 func _physics_process(_delta:float):
 	if Input.is_action_just_pressed("pause"):
@@ -18,3 +21,7 @@ func pause(pauseValue: bool) -> void:
 
 func onpause_menupause():
 	toggle_pause()
+
+func update_player_hp(hp):
+	current_player_hp = hp
+	ui.update_hp(current_player_hp)
