@@ -10,7 +10,9 @@ extends Node2D
 
 
 
-func ontimertimeout():
+
+
+func SpawnNext():
 	var spawn_positions = [spawn_position_1, spawn_position_2]
 	var random_position = spawn_positions.pick_random()
 	var enemy_instance: BaseEnemy = enemy_pool.ActivateNextAvalibleItem(spawnEnemyTargetNode)

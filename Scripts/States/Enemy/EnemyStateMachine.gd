@@ -11,3 +11,8 @@ func _init(context: EnemyStateContext):
 func takeDamage(source: Node2D) -> void:
 	var newState: int = currentState.TakeDamage(source)
 	QueueSwapState(newState)
+
+func enterAggro(source: Node2D) -> void:
+	var newState: int = currentState.InRangeOf(source)
+	QueueSwapState(newState)
+

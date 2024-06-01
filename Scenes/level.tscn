@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cjywh3rvcxhif"]
 
-[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/necro.tscn" id="1_dsgnu"]
+[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/Necro.tscn" id="1_dsgnu"]
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_fc8c1"]
 [ext_resource type="TileSet" uid="uid://cb4as7whlwq12" path="res://Recourses/cursed_grey_land.tres" id="3_8pl8x"]
 [ext_resource type="PackedScene" uid="uid://d3e3rqriswvcl" path="res://Scenes/PauseMenu.tscn" id="5_o5e5c"]
-[ext_resource type="PackedScene" uid="uid://bvb488rh1ggrc" path="res://Prefabs/Castle.tscn" id="6_0eokt"]
+[ext_resource type="PackedScene" path="res://Prefabs/Castle.tscn" id="6_0eokt"]
 [ext_resource type="PackedScene" uid="uid://dkf8nh85qoycs" path="res://Prefabs/hero_v1.tscn" id="6_fs026"]
 [ext_resource type="PackedScene" uid="uid://6mcteg0217m6" path="res://Scenes/HumanSpawner.tscn" id="7_unpvj"]
 [ext_resource type="PackedScene" uid="uid://dbt1go0o51dve" path="res://Prefabs/Ui.tscn" id="8_kv80s"]

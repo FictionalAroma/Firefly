@@ -32,7 +32,13 @@ func _physics_process(delta: float):
 	
 	animated_sprite.Update(velocity)
 	
-func take_damage(damage_amount):
+func take_damage(damage_amount: int):
 	current_hp -= damage_amount
 	level.update_player_hp(current_hp)
 
+
+
+func enteredAggroRange(body:Node2D):
+	var enemy := body as BaseEnemy
+	if enemy != null:
+		enemy.enteredAggroRange(self)

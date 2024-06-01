@@ -18,9 +18,9 @@ func _physics_process(delta:float):
 	stateManager.Update(delta)
 
 func hitbox_hit(area: Area2D):
+
 	var bullet := area as BasicBullet
 	stateManager.takeDamage(bullet.projectileOwner)
-
 
 	if bullet != null:
 		hit(bullet.bulletStats.baseDamageValue)
@@ -39,7 +39,9 @@ func Kill():
 	health_bar.visible = false
 	queue_free()
 
-func initialise(initial_position):
-	var random_skin = possible_skins.pick_random()
-	animated_sprite.sprite_frames = random_skin
+func initalise(initial_position):
 	global_position = initial_position
+
+
+func enteredAggroRange(player: PlayerController):
+	stateManager.enterAggro(player)
