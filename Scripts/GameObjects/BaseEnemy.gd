@@ -18,12 +18,16 @@ func _physics_process(delta:float):
 	stateManager.Update(delta)
 
 func hitbox_hit(area: Area2D):
-
+	
 	var bullet := area as BasicBullet
-	stateManager.takeDamage(bullet.projectileOwner)
+	if area is AOE_Damage:
+		var aoe_damage:= area as AOE_Damage
+		hit(aoe_damage.damage)
+		stateManager.takeDamage(aoe_damage.projectileOwner)
 
 	if bullet != null:
 		hit(bullet.bulletStats.baseDamageValue)
+		stateManager.takeDamage(bullet.projectileOwner)
 
 func hit(damage: int):
 	currentHP -= damage

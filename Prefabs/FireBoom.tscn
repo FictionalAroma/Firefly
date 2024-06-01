@@ -1,9 +1,10 @@
-[gd_scene load_steps=108 format=3 uid="uid://s55dh7xm7mfo"]
+[gd_scene load_steps=109 format=3 uid="uid://s55dh7xm7mfo"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/FireBoom.gd" id="1_u5nhh"]
 [ext_resource type="Texture2D" uid="uid://cibmnytcxwljv" path="res://Assets/Sprites/Projectiles/fire_strike.png" id="2_7nohq"]
 [ext_resource type="Resource" uid="uid://g4ca76lm23lo" path="res://Recourses/BasicFireball.tres" id="2_55xtd"]
 [ext_resource type="Texture2D" uid="uid://d15fvtb0ycy8c" path="res://Assets/Sprites/Projectiles/_106x106_big.png" id="4_b1o20"]
+[ext_resource type="Script" path="res://Scripts/GameObjects/aoe_damage.gd" id="5_nnwny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frbmd"]
 atlas = ExtResource("2_7nohq")
@@ -719,11 +720,11 @@ radius = 7.0
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbbjt"]
-radius = 421.171
+radius = 133.0
 
 [node name="FireBoom" type="Area2D"]
 collision_layer = 128
-collision_mask = 32
+collision_mask = 33
 script = ExtResource("1_u5nhh")
 bulletStats = ExtResource("2_55xtd")
 
@@ -736,6 +737,7 @@ frame_progress = 0.207742
 
 [node name="boom_animated_sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.968627, 0.211765, 0, 1)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xbw8a")
 animation = &"boom"
 frame = 68
@@ -747,10 +749,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0x4en")
 
 [node name="aoe_damage" type="Area2D" parent="."]
-visible = false
+collision_layer = 128
+monitoring = false
+script = ExtResource("5_nnwny")
 
 [node name="aoe_collision" type="CollisionShape2D" parent="aoe_damage"]
-position = Vector2(5, -10)
+position = Vector2(-1, 4)
 shape = SubResource("CircleShape2D_xbbjt")
 
 [connection signal="area_entered" from="." to="." method="onarea_entered"]
