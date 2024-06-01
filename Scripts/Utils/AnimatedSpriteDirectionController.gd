@@ -8,6 +8,8 @@ func Update(velocity: Vector2):
 	movement_anim_management(velocity)
 	
 func update_direction(movement_direction: Vector2) -> void:
+	if movement_direction.is_zero_approx():
+		return
 	var movementAbs = movement_direction.abs()
 	if movementAbs.x >= movementAbs.y:
 			# x is bigger than y (or close enough), so we are going left or right

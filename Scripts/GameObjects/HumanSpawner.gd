@@ -11,9 +11,7 @@ class_name HumanSpawner extends Node2D
 func SpawnNext():
 	var random_position = spawn_positions.pick_random()
 	var enemy_instance: BaseEnemy = enemy_pool.ActivateNextAvalibleItem(spawnEnemyTargetNode)
-	enemy_instance.initialise(random_position)
-
-
+	enemy_instance.initialise(random_position.global_position)
 
 
 func ontimertimeout():

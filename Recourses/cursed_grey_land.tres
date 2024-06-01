@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d3d2dotpnwndy" path="res://Assets/Sprites/Tile Map/tiles/Cursed land/Objects.png" id="1_75o2b"]
 [ext_resource type="Texture2D" uid="uid://d2ttjrnpvwjul" path="res://Assets/Sprites/Tile Map/tiles/Cursed land/Ground_rocks.png" id="1_qomlx"]
 [ext_resource type="Texture2D" uid="uid://xbsxff6rfegx" path="res://Assets/Sprites/Tile Map/tiles/castle-Sheet.png" id="2_q4opb"]
-[ext_resource type="PackedScene" path="res://Prefabs/Castle.tscn" id="4_wxjsm"]
+[ext_resource type="PackedScene" uid="uid://bvb488rh1ggrc" path="res://Prefabs/Castle.tscn" id="4_wxjsm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vrkug"]
 texture = ExtResource("1_75o2b")

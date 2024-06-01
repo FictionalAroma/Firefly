@@ -1,10 +1,12 @@
 class_name BaseEnemy extends BaseCharacter
 
-@onready var health_bar = $hpBar
-@export var possible_skins : Array [SpriteFrames]
-
 var stateContext: EnemyStateContext = EnemyStateContext.new()
 var stateManager: EnemyStateMachine = EnemyStateMachine.new(stateContext)
+
+
+@onready var health_bar = $hpBar
+@export var possible_skins: Array[SpriteFrames]
+
 
 func _ready():
 	max_hp = 15
@@ -37,7 +39,7 @@ func hit(damage: int):
 func Kill():
 	await get_tree().create_timer(0.3).timeout
 	health_bar.visible = false
-	queue_free()
+	get_parent().remove_child(self)
 
 func initialise(initial_position: Vector2) -> void:
 	current_hp = max_hp

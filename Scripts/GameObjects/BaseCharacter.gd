@@ -13,7 +13,7 @@ var is_dead: bool:
 
 var direction: Constants.Direction = Constants.Direction.SOUTH
 
-@onready var cachedLevel: LevelController = get_node("/root/Level") as LevelController
+@onready var cachedLevel: LevelController = get_node("/root/level") as LevelController
 
 func _physics_process(delta: float):
 	if !navigation_agent.is_navigation_finished():
