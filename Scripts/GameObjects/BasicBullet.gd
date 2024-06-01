@@ -25,7 +25,6 @@ func _physics_process(delta:float) -> void:
 	var vecocity = direction * bulletStats.baseSpeed * delta
 	global_position += vecocity
 	distanceToRemain -= vecocity.length()
-	print(distanceToRemain)
 
 	if distanceToRemain <= 0.0:
 		print("dead by time")

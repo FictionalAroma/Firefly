@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://qsyv386lbbbu" path="res://Assets/Sprites/Characters/Necro/Necro_frames.tres" id="3_dw52n"]
 [ext_resource type="Shape2D" uid="uid://xu6stvf4oypk" path="res://Recourses/physicsthings/foot-movement-area.tres" id="3_itp20"]
 [ext_resource type="Script" path="res://Scripts/Utils/AnimatedSpriteDirectionController.gd" id="3_se7xg"]
-[ext_resource type="PackedScene" path="res://Prefabs/FireBoom.tscn" id="4_8mm38"]
+[ext_resource type="PackedScene" uid="uid://s55dh7xm7mfo" path="res://Prefabs/FireBoom.tscn" id="4_8mm38"]
 [ext_resource type="Script" path="res://Scripts/GameObjects/staff.gd" id="4_bnbe1"]
 [ext_resource type="PackedScene" uid="uid://dlapdvur84nmc" path="res://Prefabs/Fireball.tscn" id="5_6j6cn"]
 

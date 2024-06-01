@@ -1,0 +1,166 @@
+[gd_scene load_steps=17 format=3 uid="uid://bvb488rh1ggrc"]
+
+[ext_resource type="Script" path="res://Scripts/GameObjects/Castle.gd" id="1_yb36w"]
+[ext_resource type="Texture2D" uid="uid://t2o2eeyp5e4s" path="res://Assets/Sprites/castle-Sheet.png" id="2_82nds"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fblf"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ejt"]
+bg_color = Color(1, 0.137255, 0, 1)
+
+[sub_resource type="Theme" id="Theme_t8s1l"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgkxy"]
+atlas = ExtResource("2_82nds")
+region = Rect2(0, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmnfy"]
+atlas = ExtResource("2_82nds")
+region = Rect2(2304, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xel8l"]
+atlas = ExtResource("2_82nds")
+region = Rect2(256, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bapwi"]
+atlas = ExtResource("2_82nds")
+region = Rect2(512, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0mda"]
+atlas = ExtResource("2_82nds")
+region = Rect2(768, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w666"]
+atlas = ExtResource("2_82nds")
+region = Rect2(1024, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrnfk"]
+atlas = ExtResource("2_82nds")
+region = Rect2(1280, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy45k"]
+atlas = ExtResource("2_82nds")
+region = Rect2(1536, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asw7p"]
+atlas = ExtResource("2_82nds")
+region = Rect2(1792, 0, 256, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2ugp"]
+atlas = ExtResource("2_82nds")
+region = Rect2(2048, 0, 256, 416)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12o4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgkxy")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmnfy")
+}],
+"loop": true,
+"name": &"10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xel8l")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bapwi")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0mda")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w666")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrnfk")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy45k")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asw7p")
+}],
+"loop": true,
+"name": &"8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2ugp")
+}],
+"loop": true,
+"name": &"9",
+"speed": 5.0
+}]
+
+[node name="Castle" type="Area2D"]
+collision_layer = 512
+collision_mask = 128
+script = ExtResource("1_yb36w")
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+visible = false
+offset_right = 549.0
+offset_bottom = 10.0
+theme = SubResource("Theme_t8s1l")
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+position = Vector2(293, 298)
+sprite_frames = SubResource("SpriteFrames_12o4c")
+animation = &"10"
+
+[node name="collisionPolygon2d" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(178, 448, 214, 466, 259, 448, 312, 475, 339, 464, 364, 477, 411, 458, 411, 385, 385, 347, 363, 353, 345, 326, 342, 293, 331, 286, 328, 247, 335, 243, 282, 152, 229, 243, 235, 251, 234, 274, 218, 257, 176, 330)
+
+[node name="hp_bar_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="onarea_entered"]
+[connection signal="timeout" from="hp_bar_timer" to="." method="onhp_bar_timertimeout"]
