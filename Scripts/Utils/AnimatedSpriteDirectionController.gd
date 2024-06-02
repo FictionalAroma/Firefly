@@ -3,6 +3,9 @@ extends AnimatedSprite2D
 
 var direction: Constants.Direction = Constants.Direction.SOUTH
 
+var isAttacking: bool = false
+var isDead: bool = false
+
 func Update(velocity: Vector2):
 	movement_anim_management(velocity)
 	
@@ -36,10 +39,15 @@ const attack_animations : Dictionary ={
 	Constants.Direction.WEST: &"attack_west"
 }
 func attack_animation_triggered():
+	isAttacking = true
 	play(attack_animations[direction])
+	await animation_finished
+	isAttacking = false
 	
 func movement_anim_management(velocity: Vector2):
-
+	if isAttacking or isDead:
+		return
+		
 	var movement_direction = velocity.normalized()
 	update_direction(movement_direction)
 	
