@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkf8nh85qoycs"]
+[gd_scene load_steps=15 format=3 uid="uid://dkf8nh85qoycs"]
 
 [ext_resource type="Script" path="res://Scripts/GameObjects/BaseEnemy.gd" id="1_uhx14"]
 [ext_resource type="SpriteFrames" uid="uid://c87at8y83ih17" path="res://Assets/Sprites/Characters/heroes_anims/Variant 4/hero_4_frames.tres" id="2_1k4k7"]
@@ -21,7 +21,10 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_0fblf")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_p4ejt")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv3h6"]
-radius = 60.0
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0jeh"]
+radius = 48.0
 
 [node name="hero_v1" type="CharacterBody2D"]
 collision_layer = 8
@@ -29,6 +32,10 @@ collision_mask = 79
 motion_mode = 1
 script = ExtResource("1_uhx14")
 possible_skins = Array[SpriteFrames]([ExtResource("2_ekhfp"), ExtResource("3_km63p"), ExtResource("4_0j74k"), ExtResource("2_1k4k7"), ExtResource("6_dau8o")])
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
 
 [node name="hero_v1" type="Area2D" parent="."]
 collision_layer = 32
@@ -74,9 +81,21 @@ collision_mask = 76
 monitorable = false
 
 [node name="collisionShape2d" type="CollisionShape2D" parent="avoidance_area"]
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_gv3h6")
 
+[node name="attack_area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="attack_area"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_a0jeh")
+
+[connection signal="timeout" from="attack_timer" to="." method="onattack_timertimeout"]
 [connection signal="area_entered" from="hero_v1" to="." method="hitbox_hit"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_velocity_computed"]
 [connection signal="body_entered" from="avoidance_area" to="." method="avoidanceActivationAreaEntered"]
 [connection signal="body_exited" from="avoidance_area" to="." method="avoidanceActivationArea"]
+[connection signal="body_entered" from="attack_area" to="." method="onattack_areabody_entered"]
+[connection signal="body_exited" from="attack_area" to="." method="onattack_areabody_exited"]

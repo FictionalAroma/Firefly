@@ -8,6 +8,7 @@ var stateManager: EnemyStateMachine = EnemyStateMachine.new(stateContext)
 @export var possible_skins: Array[SpriteFrames]
 
 
+
 func _ready():
 	max_hp = 15
 
@@ -74,3 +75,41 @@ func avoidanceActivationAreaEntered(_body: Node2D):
 func avoidanceActivationAreaExited(_body: Node2D):
 	pass
 	#navigation_agent.avoidance_enabled = avoidanceBody.has_overlapping_bodies()		
+
+	navigation_agent.avoidance_enabled = avoidanceBody.has_overlapping_bodies()
+
+var target_to_attack = null
+@onready var attack_timer = $attack_timer
+
+func attack(target):
+	if target is PlayerController:
+		target.take_damage(5)
+		animated_sprite.attack_animation_triggered()
+	elif target is Castle:
+		target.take_damage(5)
+	
+
+
+func onattack_areabody_entered(body):
+	target_to_attack = body
+	attack_timer.start()
+	
+
+
+func onattack_areabody_exited(body):
+	target_to_attack = null
+	attack_timer.stop()
+
+
+func onattack_timertimeout():
+	attack(target_to_attack)
+
+
+func onattack_areaarea_entered(area):
+	target_to_attack = area
+	attack_timer.start()
+	
+
+
+func onattack_areaarea_exited(area):
+	pass # Replace with function body.

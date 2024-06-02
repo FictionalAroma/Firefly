@@ -1,6 +1,6 @@
 class_name EnemyStateContext extends RefCounted
 
-var attackTarget: BaseCharacter
+var attackTarget: Node2D
 var endGoalPosition: Node2D
 var isCrusading: bool = false
 var originalPosition: Vector2

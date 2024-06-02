@@ -19,6 +19,7 @@ func initalise(shooter: Node, intialPosition: Vector2, pointDirection: Vector2) 
 
 	direction = pointDirection
 	global_rotation = pointDirection.angle()
+	AudioManager.play_cast_fireball_sound()
 
 
 func _physics_process(delta:float) -> void:

@@ -29,7 +29,15 @@ const walk_animations : Dictionary ={
 		Constants.Direction.EAST: &"walk_east",
 		Constants.Direction.WEST: &"walk_west"
 	}
-
+const attack_animations : Dictionary ={
+	Constants.Direction.SOUTH: &"attack_south",
+	Constants.Direction.NORTH: &"attack_north",
+	Constants.Direction.EAST: &"attack_east",
+	Constants.Direction.WEST: &"attack_west"
+}
+func attack_animation_triggered():
+	play(attack_animations[direction])
+	
 func movement_anim_management(velocity: Vector2):
 
 	var movement_direction = velocity.normalized()

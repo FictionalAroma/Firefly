@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://Scripts/Globals/AudioManager.gd"
+AudioManager="*res://Scenes/AudioControler.tscn"
 SettingsManager="*res://Scripts/Globals/SettingsManager.gd"
 SceneTransition="*res://Scenes/SceneTransition.tscn"
 Constants="*res://Scripts/Globals/Constants.gd"
