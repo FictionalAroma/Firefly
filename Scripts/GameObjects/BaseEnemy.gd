@@ -87,6 +87,7 @@ func attack(target):
 		animated_sprite.attack_animation_triggered()
 	elif target is Castle:
 		target.take_damage(5)
+		animated_sprite.attack_animation_triggered()
 	
 
 
@@ -112,4 +113,5 @@ func onattack_areaarea_entered(area):
 
 
 func onattack_areaarea_exited(area):
-	pass # Replace with function body.
+	target_to_attack = null
+	attack_timer.stop()
