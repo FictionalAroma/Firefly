@@ -30,6 +30,7 @@ func _physics_process(delta: float):
 	
 	animated_sprite.Update(velocity)
 	
+	
 func take_damage(damage_amount: int):
 	current_hp -= damage_amount
 	level.update_player_hp(current_hp)

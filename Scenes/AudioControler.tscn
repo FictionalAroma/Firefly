@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://0donyk7eyjpt"]
+
+[ext_resource type="Script" path="res://Scripts/Globals/AudioManager.gd" id="1_qsk40"]
+[ext_resource type="AudioStream" uid="uid://nxx283tblaeg" path="res://Assets/Audio/SFX/fireball_cast.wav" id="2_yxlj0"]
+
+[node name="Audio_Controler" type="Node"]
+script = ExtResource("1_qsk40")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="crusade_music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="cast_fireball_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yxlj0")
+volume_db = -8.611
+
+[node name="fireball_impact_audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="fireboom_impact" type="AudioStreamPlayer2D" parent="."]
