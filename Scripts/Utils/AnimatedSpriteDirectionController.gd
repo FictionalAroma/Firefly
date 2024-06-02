@@ -4,7 +4,6 @@ extends AnimatedSprite2D
 var direction: Constants.Direction = Constants.Direction.SOUTH
 
 func Update(velocity: Vector2):
-	update_direction(velocity)
 	movement_anim_management(velocity)
 	
 func update_direction(movement_direction: Vector2) -> void:
@@ -35,11 +34,16 @@ func movement_anim_management(velocity: Vector2):
 
 	var movement_direction = velocity.normalized()
 	update_direction(movement_direction)
+	
 # Idle animations
+	var selectedAnimation : StringName 
 	if velocity.is_zero_approx():
-		play(idle_animations[direction])
+		selectedAnimation = idle_animations[direction]
 	else:
-		play(walk_animations[direction])
+		selectedAnimation = walk_animations[direction]
+
+	if animation != selectedAnimation:
+		play(selectedAnimation)
 # Movement Animations
 		# if movement_direction.x > -0.7 and movement_direction.x < 0.7 and movement_direction.y < 0.7:
 		# 	animated_sprite.play("walk_north")

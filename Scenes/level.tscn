@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjywh3rvcxhif"]
+[gd_scene load_steps=11 format=3 uid="uid://cjywh3rvcxhif"]
 
-[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/necro.tscn" id="1_dsgnu"]
+[ext_resource type="PackedScene" uid="uid://vsrauxj0p1gw" path="res://Prefabs/Necro.tscn" id="1_dsgnu"]
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_fc8c1"]
 [ext_resource type="TileSet" uid="uid://cb4as7whlwq12" path="res://Recourses/cursed_grey_land.tres" id="3_8pl8x"]
 [ext_resource type="PackedScene" uid="uid://d3e3rqriswvcl" path="res://Scenes/PauseMenu.tscn" id="5_o5e5c"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dkf8nh85qoycs" path="res://Prefabs/hero_v1.tscn" id="6_fs026"]
 [ext_resource type="PackedScene" uid="uid://6mcteg0217m6" path="res://Scenes/HumanSpawner.tscn" id="7_unpvj"]
 [ext_resource type="PackedScene" uid="uid://dbt1go0o51dve" path="res://Prefabs/Ui.tscn" id="8_kv80s"]
+[ext_resource type="Script" path="res://Scripts/outside_spawner.gd" id="9_il4yj"]
+[ext_resource type="Script" path="res://Scripts/Utils/SpawnPointCluster.gd" id="10_4cr7j"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_fc8c1")
@@ -57,7 +59,7 @@ layer_4/tile_data = PackedInt32Array(4587581, 851968, 28, 4653117, 851968, 29, 4
 position = Vector2(2322, 1362)
 
 [node name="human_spawner" parent="." instance=ExtResource("7_unpvj")]
-position = Vector2(641, 159)
+position = Vector2(201, 535)
 
 [node name="UI" parent="." instance=ExtResource("8_kv80s")]
 
@@ -104,5 +106,51 @@ polygon = PackedVector2Array(845, 1415, 961, 1416, 1112, 1263, 1116, 1141, 1084,
 
 [node name="collisionPolygon2d_13" type="CollisionPolygon2D" parent="cliff_collision"]
 polygon = PackedVector2Array(709, 967, 734, 946, 812, 948, 837, 929, 973, 927, 1014, 889, 1013, 856, 1047, 830, 1066, 795, 1111, 734, 1181, 626, 1330, 626, 1339, 636, 1391, 642, 1415, 664, 1418, 801, 1386, 829, 1386, 878, 1346, 915, 1294, 918, 1244, 951, 1183, 952, 1114, 983, 1029, 981, 898, 1046, 782, 1044, 774, 1032, 733, 1027, 707, 1004)
+
+[node name="InvasionSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawnPoints")]
+script = ExtResource("9_il4yj")
+hero_v1_scene = ExtResource("6_fs026")
+spawnPoints = [NodePath("InvasionPoint")]
+
+[node name="InvasionPoint" type="Marker2D" parent="InvasionSpawner" node_paths=PackedStringArray("spawnCluster")]
+position = Vector2(-18, -20)
+script = ExtResource("10_4cr7j")
+spawnCluster = [NodePath("InvasionPoint1A"), NodePath("InvasionPoint1A_2"), NodePath("InvasionPoint1A_3"), NodePath("InvasionPoint1A_4"), NodePath("InvasionPoint1A_5"), NodePath(".")]
+
+[node name="InvasionPoint1A" type="Marker2D" parent="InvasionSpawner/InvasionPoint"]
+position = Vector2(103, 3)
+
+[node name="InvasionPoint1A_2" type="Marker2D" parent="InvasionSpawner/InvasionPoint"]
+position = Vector2(-3, 41)
+
+[node name="InvasionPoint1A_3" type="Marker2D" parent="InvasionSpawner/InvasionPoint"]
+position = Vector2(-6, 82)
+
+[node name="InvasionPoint1A_4" type="Marker2D" parent="InvasionSpawner/InvasionPoint"]
+position = Vector2(-9, 123)
+
+[node name="InvasionPoint1A_5" type="Marker2D" parent="InvasionSpawner/InvasionPoint"]
+position = Vector2(54, 3)
+
+[node name="InvasionPoint_2" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(2466, -31)
+
+[node name="InvasionPoint_3" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(4839, 190)
+
+[node name="InvasionPoint_4" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(4853, 1576)
+
+[node name="InvasionPoint_5" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(4835, 3197)
+
+[node name="InvasionPoint_6" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(2522, 3258)
+
+[node name="InvasionPoint_7" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(-12, 3208)
+
+[node name="InvasionPoint_8" type="Marker2D" parent="InvasionSpawner"]
+position = Vector2(-48, 1544)
 
 [connection signal="pause" from="pause_menu" to="." method="onpause_menupause"]

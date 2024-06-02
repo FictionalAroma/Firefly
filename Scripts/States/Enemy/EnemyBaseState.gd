@@ -10,13 +10,14 @@ func SetTarget(target: Node2D):
 func UpdatePathfinding(target: Node2D):
 	# if we have an attack target set, update target position
 	if target != null:
+		await target.get_tree().physics_frame
 		stateContext.pathfinder.target_position = target.global_position
 
 func UpdatePathfindingToPosition(target: Vector2):
 	# if we have an attack target set, update target position
-	stateContext.pathfinder.target_position = target			
+	stateContext.pathfinder.target_position = target
 
-
+	
 func TakeDamage(_combatant: Node2D) -> int:
 	return 0
 

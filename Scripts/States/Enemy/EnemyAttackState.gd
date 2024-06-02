@@ -18,7 +18,7 @@ func Update(delta: float)->int:
 			return Constants.EnemyState.INVADING if stateContext.isCrusading else Constants.EnemyState.IDLE
 
 		UpdatePathfinding(stateContext.attackTarget)
-		pathfindingUpdateTimer = 2.0
+		pathfindingUpdateTimer = 0.75 + randf_range(-0.5, 1.5)
 
 	stateContext.animated_sprite.Update(stateContext.currentVelocity)
 

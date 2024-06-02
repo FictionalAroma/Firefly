@@ -13,9 +13,8 @@ func _ready():
 
 	stateContext.animated_sprite = animated_sprite
 	stateContext.pathfinder = navigation_agent
-	stateContext.endGoalPosition = cachedLevel.castle
-	stateManager.initalise()
-	initialise(global_position)
+	#stateManager.initalise()
+	#initialise(global_position)
 
 
 
@@ -23,6 +22,7 @@ func _physics_process(delta:float):
 	super._physics_process(delta)
 	stateContext.currentVelocity = velocity
 	stateManager.Update(delta)
+
 
 func hitbox_hit(area: Area2D):
 
@@ -45,11 +45,21 @@ func Kill():
 	health_bar.visible = false
 	get_parent().remove_child(self)
 
-func initialise(initial_position: Vector2, target: Vector2 = Vector2.ZERO) -> void:
+func initialise(initial_position: Vector2, target: Vector2 = Vector2.ZERO, isInvader: bool =false) -> void:
 	current_hp = max_hp
 	stateContext.originalPosition = target if target != Vector2.ZERO else global_position
-	var random_skin = possible_skins.pick_random()
-	animated_sprite.sprite_frames = random_skin
+	stateContext.isCrusading = isInvader
+	if cachedLevel == null:
+		cachedLevel = get_node("/root/level") as LevelController
+	if cachedLevel != null && stateContext.endGoalPosition == null:
+		stateContext.endGoalPosition = cachedLevel.castle
+
+	if isInvader:
+		avoidanceBody.process_mode = PROCESS_MODE_DISABLED
+	else:
+		avoidanceBody.process_mode = Node.PROCESS_MODE_INHERIT 
+
+	animated_sprite.sprite_frames = possible_skins.pick_random()
 	global_position = initial_position
 	stateManager.initalise()
 
@@ -58,7 +68,9 @@ func enteredAggroRange(player: PlayerController):
 
 
 func avoidanceActivationAreaEntered(_body: Node2D):
-	navigation_agent.avoidance_enabled = true
+	pass
+	#navigation_agent.avoidance_enabled = !stateContext.isCrusading
 
 func avoidanceActivationAreaExited(_body: Node2D):
-	navigation_agent.avoidance_enabled = avoidanceBody.has_overlapping_bodies()		
+	pass
+	#navigation_agent.avoidance_enabled = avoidanceBody.has_overlapping_bodies()		

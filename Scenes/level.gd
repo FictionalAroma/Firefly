@@ -2,6 +2,7 @@ class_name LevelController extends Node2D
 @onready var necro : PlayerController = $necro
 @onready var pause_menu = $pause_menu
 @onready var castle : Castle = $Castle
+@onready var invasionSpawner = $InvasionSpawner
 
 @onready var ui = $UI
 
@@ -27,3 +28,6 @@ func onpause_menupause():
 func update_player_hp(hp):
 	current_player_hp = hp
 	ui.update_hp(current_player_hp)
+
+func _ready():
+	invasionSpawner.spawn_wave()

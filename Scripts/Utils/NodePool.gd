@@ -4,7 +4,11 @@ var _objectToPool: PackedScene
 var _startObjectCount: int
 var allowPoolExpansion: bool = true
 
+var lastNodeSelectedIndex := 0
+
 var _itemPool: Array[Variant] = []
+var objectInitialistionCompleted := false
+signal ObjectInitialisationComplete()
 
 
 func _init(object: PackedScene, initialCount: int):
@@ -27,6 +31,22 @@ func InitalisePool(toNumber: int, nukePool: bool = false):
 		var newItem = _objectToPool.instantiate()
 		_itemPool.append(newItem)
 
+func run_initial_create(owner:Node) -> void:
+	objectInitialistionCompleted = false
+	for obj in _itemPool:
+		owner.add_child(obj)
+		#await obj.ready
+		await obj.get_tree().physics_frame
+		owner.remove_child(obj)
+	objectInitialistionCompleted = true
+	emit_signal(ObjectInitialisationComplete.get_name())
+
+func ensure_initial_creation(owner:Node) -> bool:
+	if objectInitialistionCompleted:
+		return true
+	else:
+		run_initial_create(owner)
+		return objectInitialistionCompleted
 
 func ClearPool():
 	_itemPool.all(

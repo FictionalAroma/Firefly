@@ -21,33 +21,37 @@ func _physics_process(delta):
 		global_position += vecocity
 		distanceToRemain -= vecocity.length()
 	if distanceToRemain <= 0.0:
-		Remove()
+		explode()
 
-func explode():
+func explode() ->void:
+	if hit:
+		return
+	hit = true
+
 	aoe_damage.projectileOwner = projectileOwner
 	fireball_animated_sprite.visible = false
 	boom_animated_sprite.visible = true
 	aoe_damage.visible = true
 	boom_animated_sprite.play("boom")
-	hit = true
 	
 
 func onboom_animated_spriteanimation_finished():
 	Remove()
 
-func onarea_entered(area):
-	explode()
+func onarea_entered(_area):
+	if !bulletStats.goToPosition:
+		explode()
 
-func initalise(shooter: Node, intialPosition: Vector2, pointDirection: Vector2) -> void:
+func initalise(shooter: Node, intialPosition: Vector2, targetPosition: Vector2) -> void:
 	fireball_animated_sprite.visible = true
 	hit = false
 	boom_animated_sprite.visible = false
 	aoe_damage.visible = false
 	global_position = intialPosition
-	distanceToRemain= bulletStats.baseRange
+	distanceToRemain= minf(bulletStats.baseRange, intialPosition.distance_to(targetPosition))
 	projectileOwner = shooter
 
-	direction = pointDirection
+	var pointDirection := intialPosition.direction_to(targetPosition)
 	global_rotation = pointDirection.angle()
 
 
